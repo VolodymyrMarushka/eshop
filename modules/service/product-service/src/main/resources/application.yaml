@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: product-service
+
+server:
+  port: 8082
+
+vmdev:
+  pet:
+    eshop:
+      provider:
+        product-catalog:
+          mongo:
+            uri: mongodb://admin:admin@localhost:27017
+            db: eshop_db
+            collection: products

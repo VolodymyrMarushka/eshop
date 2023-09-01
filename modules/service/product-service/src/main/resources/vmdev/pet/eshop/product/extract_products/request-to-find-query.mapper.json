@@ -1,0 +1,25 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "products": {
+        "#in": "searchFields[0].operator",
+        "#id": "searchFields[0].name",
+        "@": "searchFields[0].value"
+      }
+    }
+  },
+  {
+    "operation": "default",
+    "spec": {
+      "sortFields": [],
+      "selectFields": [],
+      "excludeFields": [
+        {
+          "name": "_version"
+        }
+      ],
+      "offset": "0"
+    }
+  }
+]
