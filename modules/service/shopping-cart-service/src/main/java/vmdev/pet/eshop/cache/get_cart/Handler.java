@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class Handler {
 
-  private static final JsonMapper<Model.Cart> TO_CART = JsonMapper.create(
-      JsonResources.readResource("/vmdev/pet/eshop/cache/get_cart/to-cart.mapper.json"), Model.Cart::new);
+  private static final JsonMapper<Model.Cart> DATA_TO_CART = JsonMapper.create(
+      JsonResources.readResource("/vmdev/pet/eshop/cache/get_cart/data-to-cart.mapper.json"), Model.Cart::new);
 
   Providers.ItemStore itemStore;
   Providers.ProductFabric productFabric;
@@ -32,7 +32,7 @@ public class Handler {
         .putEntities("items", items)
         .putString("cartId", cartId)
         .putEntities("products", jsonBeans);
-    return TO_CART.map(data);
+    return DATA_TO_CART.map(data);
   }
 
 }
