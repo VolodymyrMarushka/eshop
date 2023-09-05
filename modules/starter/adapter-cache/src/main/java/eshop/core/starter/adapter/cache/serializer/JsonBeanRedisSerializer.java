@@ -25,13 +25,13 @@ public class JsonBeanRedisSerializer implements RedisSerializer<JsonBean> {
   }
 
   @Override
-  public byte[] serialize(JsonBean jsonBean) throws SerializationException {
+  public byte[] serialize(@Nullable JsonBean jsonBean) throws SerializationException {
     return jsonBean == null ? null : jsonBean.asString().getBytes();
   }
 
   @Override
   public JsonBean deserialize(@Nullable byte[] bytes) {
-    return bytes == null ? null : JsonParser.stringToEntity(String.valueOf(bytes), JsonBean::new);
+    return bytes == null ? null : JsonParser.stringToEntity(new String(bytes, charset), JsonBean::new);
   }
 
 }

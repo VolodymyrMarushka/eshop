@@ -28,12 +28,11 @@ public class Handler {
     }
 
     List<JsonBean> jsonBeans = productFabric.extractProducts(items);
-//    JsonBean data = new JsonBean()
-//        .putEntities("items", items)
-//        .putString("cartId", cartId)
-//        .putEntities("products", jsonBeans);
-//    Model.Cart cart = TO_CART.map(data);                  // ToDo fix jolt
-    return Model.Cart.of(cartId, jsonBeans);
+    JsonBean data = new JsonBean()
+        .putEntities("items", items)
+        .putString("cartId", cartId)
+        .putEntities("products", jsonBeans);
+    return TO_CART.map(data);
   }
 
 }

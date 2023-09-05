@@ -2,8 +2,37 @@
   {
     "operation": "shift",
     "spec": {
-      "data": {
-        "*": "&"
+      "cartId": "cartId",
+      "*": {
+        "*": {
+          "id": {
+            "*": {
+              "@(2,id)": {
+                "@(3)": "&"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "operation": "shift",
+    "spec": {
+      "cartId": "cart.id",
+      "*": {
+        "$": "cart.items[#2].id",
+        "*": {
+          "id": {
+            "*": {
+              "@(2,name)": "cart.items[#5].name",
+              "@(2,quantity)": "cart.items[#5].quantity",
+              "@(2,totalLikes)": "cart.items[#5].likes",
+              "@(2,price)": "cart.items[#5].price",
+              "@(2,brand)": "cart.items[#5].brand"
+            }
+          }
+        }
       }
     }
   }
